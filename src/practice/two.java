@@ -1,7 +1,5 @@
 package practice;
 
-import java.util.Scanner;
-
 public class two {
     public static void main(String[] args) {
         int count = 0;
