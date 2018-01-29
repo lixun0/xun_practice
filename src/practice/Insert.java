@@ -20,7 +20,7 @@ public class Insert {
         String driver = "com.mysql.jdbc.Driver";
         //连接数据库的URL
         String url = "jdbc:mysql://localhost:3306/t1?user=root&password=root&useUnicode=true&characterEncoding=UTF-8";
-        String sql = "insert into tbl_book (name,pagination,price ) values('" + books.getName() + "','" + books.getPrice() + "','" + books.getPagination() + "')";
+        String sql = "insert into tb1 (name,pagination,price ) values('" + books.getName() + "','" + books.getPrice() + "','" + books.getPagination() + "')";
         boolean flag = false;
         try {
             Class.forName(driver);

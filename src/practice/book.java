@@ -43,7 +43,7 @@ public class book {
         this.pagination = d;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         System.out.println("请选择：");
         System.out.println("1:添加");
         System.out.println("2:删除");
@@ -85,18 +85,50 @@ public class book {
                 System.out.println("请输入修改书名");
                 String name = sc.next();
                 System.out.println("请输入价格：");
-                Double score = sc.nextDouble();
-                if (new Update().update(name, score)) {
+                Double price = sc.nextDouble();
+                System.out.println("页码");
+                int pagination = sc.nextInt();
+                if (new Update().update(name, price, pagination)) {
                     System.out.println("成功");
                 } else {
                     System.out.println("失败");
                 }
             } else if (a == 4) {
-                new Select().show();
-            } else if (a == 0) {
-                break;
-            } else {
-                System.out.println("输入有误！");
+                Scanner scan = new Scanner(System.in);
+                String name = "";
+                int id = -1;
+
+                while (true) {
+                    System.out.println("请输入按哪种方法查找图书：1、编号/2、书名");
+                    int choose = scan.nextInt();
+                    if (choose == 1) {
+                        System.out.println("请输入要查找的书的编号：");
+                        id = scan.nextInt();
+                        if (id > -1) {
+                            Select.show(id, name);
+                        } else {
+                            System.out.println("输入错误！");
+                        }
+                    } else if (choose == 2) {
+                        System.out.println("请输入您要查找的书名：");
+                        name = scan.next();
+                        if (name != "") {
+                            Select.show(id, name);
+                        }
+                    } else if (choose == 3) {
+
+                        break; }
+                    else
+                        {
+                            System.out.println("输入非法！");
+                        }
+
+                    if (a == 0) {
+                        break;
+                    } else {
+                        System.out.println("输入有误！");
+                    }
+                }
             }
         }
     }

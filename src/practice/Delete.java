@@ -13,8 +13,8 @@ public class Delete {
         String sql = null;
         try{
             driver="com.mysql.jdbc.Driver";
-            url = "jdbc:mysql://localhost:3306/t1?user=root&password=guo941102&useUnicode=true&characterEncoding=UTF-8";
-            sql = "delete from tbl_book where name = '"+name+"'";
+            url = "jdbc:mysql://localhost:3306/t1?user=root&password=root&useUnicode=true&characterEncoding=UTF-8";
+            sql = "delete from tb1 where name = '"+name+"'";
             Class.forName(driver);
             conn = DriverManager.getConnection(url);
             st = conn.createStatement();
